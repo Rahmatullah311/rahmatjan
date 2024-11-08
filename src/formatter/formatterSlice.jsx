@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { DefaultTheme } from "../settings";
 
 const initialState = {
-  isDark: true,
+  isDark: DefaultTheme == 'dark'?true:false,
 }
 
 const formatterSlice = createSlice({
   name: 'formatter',
   initialState,
   reducers: {
-    formatterThemeToggler(state) {
+    formatterThemeToggler(state, action) {
       state.isDark = !state.isDark
     }
   }

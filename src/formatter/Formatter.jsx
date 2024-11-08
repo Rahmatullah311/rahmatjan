@@ -8,6 +8,8 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { useDispatch, useSelector } from "react-redux";
 import { formatterThemeToggler } from "./formatterSlice";
+import toast from "react-hot-toast";
+import { CopyAll } from "@mui/icons-material";
 
 const Formatter = ({ children, language }) => {
   const dispatch = useDispatch();
@@ -15,12 +17,16 @@ const Formatter = ({ children, language }) => {
   const themeToggler = () => {
     dispatch(formatterThemeToggler());
   };
-
+  const handleCopy = () => {
+    const currentCode = children;
+    navigator.clipboard.writeText(currentCode);
+    toast("Copied", { icon: <CopyAll /> });
+  };
   return (
     <div className="d-flex flex-column gap-2">
       <div className="d-flex gap-2 justify-content-end">
         <div>
-          <Button variant="outlined">
+          <Button variant="outlined" onClick={handleCopy}>
             <CopyAllOutlined />
           </Button>
         </div>

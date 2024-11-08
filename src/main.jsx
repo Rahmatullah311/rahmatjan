@@ -4,13 +4,13 @@ import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./store.js";
-import Notification from "./notification/Notification.jsx";
+import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <Notification />
       <App />
+      <Toaster toastOptions={{position: 'top-right'}} />
     </Provider>
   </StrictMode>
 );
