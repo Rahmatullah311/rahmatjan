@@ -41,15 +41,16 @@ export const solutionSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchSolutionData.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.solutionData = action.payload
+        state.isLoading = false;
       })
       .addCase(fetchSolutionDetails.pending, (state) => {
         state.isLoading = true;
+        state.solutionDetails = {}
       })
       .addCase(fetchSolutionDetails.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.solutionDetails = action.payload
+        state.isLoading = false;
       });
     },
 });
