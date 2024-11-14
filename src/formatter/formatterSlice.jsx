@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { DefaultTheme } from "../settings";
 
 const initialState = {
-  isDark: DefaultTheme == 'dark'?true:false,
+  isDark: DefaultTheme == 'light'?false:true,
 }
 
 const formatterSlice = createSlice({
