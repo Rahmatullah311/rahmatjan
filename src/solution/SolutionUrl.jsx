@@ -1,20 +1,15 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import WebLayout from "../layouts/WebLayout";
-
-const Solution = lazy(() => import("./Solution"));
-const SolutionDetail = lazy(() => import("./SolutionDetail"));
-import Preloaders from "../components/Preloaders";
-
+import Solution from "./Solution";
+import SolutionDetail from "./SolutionDetail";
 const SolutionUrl = () => {
   return (
     <WebLayout>
-      <Suspense fallback={<Preloaders/>}>
-        <Routes>
-          <Route path="/" element={<Solution />} />
-          <Route path="/:slug" element={<SolutionDetail />} />
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element={<Solution />} />
+        <Route path="/:slug" element={<SolutionDetail />} />
+      </Routes>
     </WebLayout>
   );
 };
