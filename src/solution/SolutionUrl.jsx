@@ -4,12 +4,12 @@ import WebLayout from "../layouts/WebLayout";
 
 const Solution = lazy(() => import("./Solution"));
 const SolutionDetail = lazy(() => import("./SolutionDetail"));
-import SolutionsLoader from "./loaders/SolutionsLoader";
+import Preloaders from "../components/Preloaders";
 
 const SolutionUrl = () => {
   return (
     <WebLayout>
-      <Suspense fallback={<SolutionsLoader/>}>
+      <Suspense fallback={<Preloaders/>}>
         <Routes>
           <Route path="/" element={<Solution />} />
           <Route path="/:slug" element={<SolutionDetail />} />
