@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-const BasicCard = lazy(() => import("./components/BasicCard"));
+import BasicCard from './components/BasicCard.jsx'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { ContentSTrimer, TitleSTrimer } from "../components/CustomUtils.js";
@@ -23,14 +23,12 @@ const Solution = () => {
           <div className="d-flex gap-3">
             {solutionData &&
               solutionData.map((item) => (
-                <Suspense fallback={<SolutionsLoader />}>
-                  <BasicCard
-                    key={item.slug}
-                    title={TitleSTrimer(item.title)}
-                    slug={item.slug}
-                    content={ContentSTrimer(item.summary)}
-                  />
-                </Suspense>
+                <BasicCard
+                  key={item.slug}
+                  title={TitleSTrimer(item.title)}
+                  slug={item.slug}
+                  content={ContentSTrimer(item.summary)}
+                />
               ))}
           </div>
         </div>
