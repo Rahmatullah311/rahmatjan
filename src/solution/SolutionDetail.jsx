@@ -8,6 +8,7 @@ import Formatter from "../formatter/Formatter";
 import { Comment } from "@mui/icons-material";
 import { LoaderIcon } from "react-hot-toast";
 import SolutionDetailsLoader from "./loaders/SolutionDetailsLoader";
+import Comments from "../comment/Comments";
 
 const SolutionDetail = () => {
   const { slug } = useParams();
@@ -57,6 +58,9 @@ const SolutionDetail = () => {
             <span>&nbsp;</span>
             users comments
           </h2>
+          <div>
+          <Comments ArticleID={1212} />
+          </div>
         </div>
       </div>
     </div>
